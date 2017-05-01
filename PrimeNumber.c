@@ -10,7 +10,7 @@ int main(void)
 	PrimeNumber(count);
 }
 
-void PrimeNumber(int count)
+void PrimeNumber(int count) // get primenumber
 {
 	int n1 = 2, n2, i;
 
