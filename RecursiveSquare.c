@@ -13,7 +13,7 @@ int main(void)
 	return 0;
 }
 
-int Square(int num)
+int Square(int num)//repeat to input value using recursive
 {
 	if (num == 0)
 		return 1;
