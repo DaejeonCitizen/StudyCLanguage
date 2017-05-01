@@ -14,7 +14,7 @@ int main(void)
 	return 0;
 }
 
-int Square(int num)
+int Square(int num) //2^k=n, return k
 {
 	int sum = 1, i = 0;
 	while(1)
