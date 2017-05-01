@@ -1,5 +1,15 @@
 #include <stdio.h>
 
+void PrimeNumber(int)
+
+int main(void)
+{
+	int count;
+	printf("Number of PrimeNumber : ");
+	scanf("%d", &count);
+	PrimeNumber(count);
+}
+
 void PrimeNumber(int count)
 {
 	int n1 = 2, n2, i;
@@ -14,12 +24,4 @@ void PrimeNumber(int count)
 		if (n1 == n2)
 			printf("%d\n", n1), i++;
 	}
-}
-
-int main(void)
-{
-	int count;
-	printf("Number of PrimeNumber : ");
-	scanf("%d", &count);
-	PrimeNumber(count);
 }
