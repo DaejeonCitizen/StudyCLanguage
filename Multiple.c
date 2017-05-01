@@ -16,7 +16,7 @@ int main(void)
 	return 0;
 }
 
-void Multiple(int n1,int n2)
+void Multiple(int n1,int n2) // get fir~sec googoodan
 {
 	int goo1, goo2, i;
 
