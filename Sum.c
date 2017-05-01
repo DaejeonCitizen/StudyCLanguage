@@ -15,12 +15,12 @@ int main(void)
   return 0;
  }
  
- int Sum(int num1, int num2)
+ int Sum(int num1, int num2) // num+num2 return
  {
   return num1 + num2;
  }
  
- int IntputValue(void)
+ int InputValue(void)
  {
   int n;
   scanf("%d", &n);
