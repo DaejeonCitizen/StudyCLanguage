@@ -7,10 +7,10 @@ int main(void)
 	int * ptr = arr;
 	
 	for (i = 0; i < 5; i++)
-		*(ptr + i) += 2;
-
+		*(ptr++) += 2; // *(ptr+i) += 2;
+	*ptr -= i;
 	for (i = 0; i < 5; i++)
-		printf("%-2d", *(ptr + i));
+		printf("%-2d", *(ptr++)); // printf("%-2d", *(ptr+i));
 	printf("\n");
 
 	return 0;
