@@ -11,10 +11,12 @@ int main(void)
 		scanf("%d", &num[i]);
 
 	for (i = 0; i < 5; i++)
+	{
 		max = num[i] > max ? num[i] : max;
-	min = max;
-	for (i = 0; i < 5; i++)
+		if (min == 0)
+			min = max;
 		min = num[i] < min ? num[i] : min;
+	}
 	for (i = 0; i < 5; i++)
 		sum += num[i];
 
