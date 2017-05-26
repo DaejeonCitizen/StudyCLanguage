@@ -4,9 +4,9 @@ void ShowArr(int ar[][50], int n)
 {
 	int i, j;
 
-	for (i = 0; i < n; i++)
+	for (i = 1; i < n+1; i++)
 	{
-		for (j = 0; j < n; j++)
+		for (j = 1; j < n+1; j++)
 			printf("%-4d", ar[i][j]);
 		printf("\n");
 	}
@@ -14,50 +14,16 @@ void ShowArr(int ar[][50], int n)
 
 void SnailArray(int ar[][50], int n)
 {
-	/*
-	int i, j, f, b, t, c = 1;
-	
-	for (i = 0; i < n; i++)
-		ar[0][i] = c, c++;
-
-	for (i = 1; i < n; i++)
-		ar[i][n - 1] = c, c++;
-
-	i = n - 1, j = n - 1, t = 2;
-
-	while (c != n*n)
-	{
-		if (t == 0)
-			f = 0, b = 1;
-		else if (t == 1)
-			f = 1, b = 0;
-		else if (t == 2)
-			f = 0, b = -1;
-		else
-			f = -1, b = 0;
-		while (ar[i][j] == 0)
-		{
-			i += (f), j += (b);
-			ar[i][j] = c, c++;
-		}
-		t++;
-		t = t % 4;
-		
-	}
-	*/
-	
 	int i, j, f, b, t, c = 1;
 
-	for (i = 0; i <= n; i++)
-		ar[n][i] = -1;
-
-	for (i = 0; i < n; i++)
-		ar[i][n] = -1;
-
+	for (i = 1; i <= n; i++)
+		for (j = 1; j <= n; j++)
+			ar[i][j] = -1;
+	
 	f = b = t = 0;
-	i = 0, j = -1;
+	i = 1, j = 0;
 	
-	while (c != n*n)
+	while (c != n*n+1)
 	{
 		if (t == 0)
 			f = 0, b = 1;
@@ -71,7 +37,7 @@ void SnailArray(int ar[][50], int n)
 		while (1)
 		{
 			i += (f), j += (b);
-			if (ar[i][j] == -1)
+			if (ar[i][j] != -1)
 				break;
 			ar[i][j] = c, c++;
 		}
