@@ -2,7 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 
-void StrikeBall(int pac[], int pau[], void (*Ball)(int c[], int u, int *ball))
+void Ball(int pac[], int pau, int * b)
+{
+	int i;
+
+	for (i = 0; i < 3; i++)
+		if (pau == pac[i])
+			(*b)++;
+}
+
+void StrikeBall(int pac[], int pau[])
 {
 	int i, s, b, c;
 	i = s = b = c = 0;
@@ -30,15 +39,6 @@ void StrikeBall(int pac[], int pau[], void (*Ball)(int c[], int u, int *ball))
 	
 }
 
-void Ball(int pac[], int pau, int * b)
-{
-	int i;
-
-	for (i = 0; i < 3; i++)
-		if (pau == pac[i])
-			*b++;
-	printf("%d", *b);
-}
 
 int main(void)
 {
@@ -53,6 +53,6 @@ int main(void)
 
 	printf("Game start!\n");
 
-	StrikeBall(arrc, arru, Ball);
+	StrikeBall(arrc, arru);
 
 }
