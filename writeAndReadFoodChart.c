@@ -9,6 +9,13 @@ typedef struct
 	int price;
 } Foodinfo;
 
+typedef struct
+{
+	char name[20];
+	char maker[20];
+	int price;
+} Foodinfotemp;
+
 void GetFoodInfo(Foodinfo * info)
 {
 	char nametemp[20];
@@ -39,36 +46,56 @@ void GetFoodInfo(Foodinfo * info)
 void OutputFoodChart(Foodinfo * info, int fdn)
 {
 	int i;
-	FILE * fp = fopen("food_chart.txt", "rb");
+	FILE * fp = fopen("food_chart.bin", "wb");
 	if (fp == NULL) {
 		puts("failed open file");
 	}
-
 	for (i = 0; i < fdn; i++)
 		fwrite((void*)&info[i], sizeof(info[i]), 1, fp);
 
 	puts("SAVE COMPLETE");
+	fclose(fp);
 }
 
+/*
+void OutputFoodChart(Foodinfo * info)
+{
+	FILE * fp = fopen("food_chart.bin", "ab");
+	if (fp == NULL) {
+		puts("failed open file");
+	}
+	fwrite((void *)&info, sizeof(info), 1, fp);
+
+	puts("SAVE COMPLETE");
+	fclose(fp);
+}
+*/
 void ReadFoodChart(void)
 {
 	int i = 0;
 	Foodinfo * food;
-	FILE * fp = fopen("food_chart.txt", "rb");
+	Foodinfotemp foodtemp;
+	FILE * fp = fopen("food_chart.bin", "rb");
 	if (fp == NULL) {
 		puts("failed file open");
 		return;
 	}
 
-	food = (Foodinfo*)malloc(sizeof(Foodinfo));
+	food = (Foodinfo*)malloc(sizeof(Foodinfo) * 1);
 
 	while (1)
 	{
-		
-		
-		if (fread((void*)&food[i], sizeof(food[i]), 1, fp))
+		fread((void*)&foodtemp, sizeof(food[i]), 1, fp);
+
+		food[i].name = (char *)malloc(strlen(foodtemp.name) + 1);
+		strncpy_s(food[i].name, sizeof(food[i].name) + 1, foodtemp.name, sizeof(food[i].name) + 1);
+		food[i].maker = (char *)malloc(strlen(foodtemp.maker) + 1);
+		strncpy_s(food[i].maker, sizeof(food[i].maker) + 1, foodtemp.maker, sizeof(food[i].maker) + 1);
+		food[i].price = foodtemp.price;
+
+		if (!feof(fp))
 		{
-			food = (Foodinfo *)realloc(food, sizeof(Foodinfo)*(i + 2));// heap damaged
+			food = (Foodinfo *)realloc(food, sizeof(Foodinfo)*(i + 2));
 			i++;
 		}
 		else
