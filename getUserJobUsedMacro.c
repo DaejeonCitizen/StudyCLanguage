@@ -30,7 +30,18 @@ void InputJobInfo(Jobinfo people[], int count)
 		strcpy_s(people[i].name, strlen(temp.name) + 1, temp.name);
 		strcpy_s(people[i].job, strlen(temp.job) + 1, temp.job);
 	}
-	
+	free(temp.name);
+	free(temp.job);
+}
+
+void UnassignMemory(Jobinfo * info, int count)
+{
+	int i;
+	for (i = 0; i < count; i++)
+	{
+		free(info[i].name);
+		free(info[i].job);
+	}
 }
 
 void ReadJobInfo(Jobinfo people[], int count)
@@ -52,6 +63,7 @@ int main(void)
 	job = (Jobinfo *)malloc(sizeof(Jobinfo) * count);
 	InputJobInfo(job, count);
 	ReadJobInfo(job, count);
-
+	UnassoignMemory(job, count);
+	
 	return 0;
 }
