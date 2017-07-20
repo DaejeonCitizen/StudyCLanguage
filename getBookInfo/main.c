@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "bookinfo.h"
-#include "inputbookinfo.h"
+#include "include\bookinfo.h"
+#include "include\inputbookinfo.h"
 
 int main(void)
 {

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "bookinfo.h"
-#include "removebsn.h"
+#include "include\bookinfo.h"
+#include "include\removebsn.h"
 #define TEMPSIZE 50
 
 void Inputbookinfo(Bookinfo * book, int count)
