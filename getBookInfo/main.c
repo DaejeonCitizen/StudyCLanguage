@@ -19,10 +19,17 @@ int main(void)
 	
 	for (i = 0; i < count; i++)
 	{
-		printf("----%d번째 책 정보----\n", i + 1);
+		printf("----%d. Book Info----\n", i + 1);
 		printf("Title: %s\n", book[i].title);
 		printf("Writer: %s\n", book[i].writer);
 		printf("Page: %d\n", *book[i].page);
+	}
+	
+	for (i = 0; i < count; i++)
+	{
+		free(book[i].title);
+		free(book[i].writer);
+		free(book[i].age);
 	}
 
 	return 0;
