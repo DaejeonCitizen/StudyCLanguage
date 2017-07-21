@@ -16,7 +16,7 @@ void Inputbookinfo(Bookinfo * book, int count)
 
 	for (i = 0; i < count; i++)
 	{
-		printf("----%d��° å ���� �Է�----\n", i + 1);
+		printf("----%d¹øÂ° Ã¥ Á¤º¸ ÀÔ·Â----\n", i + 1);
 
 		printf("Insert title: ");
 		fgets(booktemp.title, TEMPSIZE, stdin);
@@ -39,4 +39,8 @@ void Inputbookinfo(Bookinfo * book, int count)
 		strcpy_s(book[i].writer, strlen(booktemp.writer) + 1, booktemp.writer);
 		*book[i].page = *booktemp.page;
 	}
+	
+	free(booktemp.title);
+	free(booktemp.writer);
+	free(booktemp.age);
 }
