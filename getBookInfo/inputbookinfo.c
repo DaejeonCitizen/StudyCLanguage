@@ -16,7 +16,7 @@ void Inputbookinfo(Bookinfo * book, int count)
 
 	for (i = 0; i < count; i++)
 	{
-		printf("----%d¹øÂ° Ã¥ Á¤º¸ ÀÔ·Â----\n", i + 1);
+		printf("----%d. Insert book info----\n", i + 1);
 
 		printf("Insert title: ");
 		fgets(booktemp.title, TEMPSIZE, stdin);
