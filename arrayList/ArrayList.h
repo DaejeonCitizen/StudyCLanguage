@@ -25,7 +25,7 @@ void LInsert(List * plist, LData data);
 int LFirst(List * plist, LData * pdata);
 int LNext(List * plist, LData * pdata);
 
-void LRemove(List * plist);
+LData LRemove(List * plist);
 int LCount(List * plist);
 
 #endif

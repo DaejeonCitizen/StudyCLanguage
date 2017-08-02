@@ -5,7 +5,7 @@ int main(void)
 {
 	/*** Creation and initialize of arrayList ***/
 	List list;
-	int data;
+	LData data;
 	int sum = 0;
 	int i;
 	ListInit(&list);

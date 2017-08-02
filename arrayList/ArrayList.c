@@ -12,7 +12,7 @@ void ListInit(List * plist)
 	plist->curPosition = 0;
 }
 
-void LInsert(List * plist, int data)
+void LInsert(List * plist, LData data)
 {
 	plist->arr[plist->numOfData] = data;
 
@@ -20,7 +20,7 @@ void LInsert(List * plist, int data)
 	(plist->curPosition)++;
 }
 
-int LFirst(List * plist, int * data)
+int LFirst(List * plist, LData * data)
 {
 	plist->curPosition = 0;
 
@@ -34,7 +34,7 @@ int LFirst(List * plist, int * data)
 		return FALSE;
 }
 
-int LNext(List * plist, int * data)
+int LNext(List * plist, LData * data)
 {
 	if (plist->curPosition < plist->numOfData)
 	{
@@ -46,10 +46,11 @@ int LNext(List * plist, int * data)
 		return FALSE;
 }
 
-void LRemove(List * plist)
+LData LRemove(List * plist)
 {
 	static int check = -1;
 	int i;
+	LData temp = plist->arr[(plist->curPosition) - 1];
 	
 	if ((plist->curPosition) == check - 1)
 		return;
